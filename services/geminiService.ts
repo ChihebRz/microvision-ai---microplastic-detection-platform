@@ -2,13 +2,19 @@
 import { GoogleGenAI } from "@google/genai";
 
 export class GeminiService {
-  private ai: GoogleGenAI;
+  private ai: GoogleGenAI | null = null;
 
   constructor() {
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+    const apiKey = process.env.API_KEY;
+    if (apiKey) {
+      this.ai = new GoogleGenAI({ apiKey });
+    }
   }
 
   async analyzeMicroplastics(imageDescription: string, detections: any[]) {
+    if (!this.ai) {
+      return "AI analysis is not available. Set your Gemini API key to enable this feature.";
+    }
     try {
       const prompt = `
         Analyze the following microplastic detection data for environmental impact:
@@ -35,6 +41,9 @@ export class GeminiService {
   }
 
   async getDatasetInsights(stats: any) {
+    if (!this.ai) {
+      return "Insights are not available. Set your Gemini API key to enable this feature.";
+    }
     try {
       const prompt = `
         You are an environmental data scientist. Analyze these microplastic dataset statistics:
