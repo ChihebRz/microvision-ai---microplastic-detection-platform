@@ -435,17 +435,3 @@ python training/train.py --batch-size 2
 **Flow**:
 ```
 CSV + Images → DetectionDataset → DataLoader → train.py → Faster R-CNN → Loss → Backprop → Updated Weights → output/
-```
-
----
-
-## Next Steps
-
-1. ✅ Smoke-test data loader (verify data loads)
-2. ⏳ Run full training (1-5 epochs)
-3. ⏳ Evaluate on test set (precision, recall, mAP)
-4. ⏳ Integrate trained model into React frontend `/services/geminiService.ts`
-
----
-
-**Questions?** Check the code comments in each file or re-read the relevant section above.
