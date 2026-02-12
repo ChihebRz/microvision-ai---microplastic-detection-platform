@@ -1,0 +1,7 @@
+{
+  "name": "MicroVision AI - Microplastic Detection Platform",
+  "description": "A professional AI-driven platform for visualizing microplastic datasets, managing YOLO training experiments, and performing real-time inference to aid ocean cleanup efforts.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
